@@ -18,32 +18,6 @@ DROP TABLE IF EXISTS waitlist;
 DROP TABLE IF EXISTS reservations;
 
 /*
-CREATE TABLES
-*/
-
--- create waitlist table
-CREATE TABLE IF NOT EXISTS  waitlist (
-    waitlistID int NOT NULL AUTO_INCREMENT,
-    boatID int NOT NULL,
-
-    PRIMARY KEY (waitlistID),
-
-    CONSTRAINT fk_boat
-    FOREIGN KEY (boatID) 
-    REFERENCES boats(boatID)
-);
-
-/*
-POPULATE TABLES
-*/
-
--- insert data into waitlist table
-INSERT INTO waitlist (boatID)
-VALUES (2),
-       (1),
-       (3);
-
-/*
 CREATE POPULATE BOATS TABLE
 */
 CREATE TABLE IF NOT EXISTS boats (
@@ -166,3 +140,25 @@ CREATE TABLE IF NOT EXISTS rates (
 );
 
 INSERT INTO marinadb.rates (pricePerFoot,electricPower) VALUES (10.50,10.00);
+
+-- create waitlist table
+CREATE TABLE IF NOT EXISTS  waitlist (
+    waitlistID int NOT NULL AUTO_INCREMENT,
+    boatID int NOT NULL,
+
+    PRIMARY KEY (waitlistID),
+
+    CONSTRAINT fk_boat
+    FOREIGN KEY (boatID) 
+    REFERENCES boats(boatID)
+);
+
+/*
+POPULATE TABLES
+*/
+
+-- insert data into waitlist table
+INSERT INTO waitlist (boatID)
+VALUES (2),
+       (1),
+       (3);
