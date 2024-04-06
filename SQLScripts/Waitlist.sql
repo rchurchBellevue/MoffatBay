@@ -11,3 +11,9 @@ CREATE TABLE IF NOT EXISTS  waitlist (
     PRIMARY KEY (waitlistID),
     FOREIGN KEY (boatID) REFERENCES boats(boatID)
 );
+
+-- insert data into table
+INSERT INTO waitlist (boatID)
+VALUES (2),
+       (1),
+       (3);
