@@ -3,7 +3,7 @@
 */
 
 -- drop database user if exists
-DROP USER IF EXISTS 'marinaAdmin'@'localhost'
+DROP USER IF EXISTS 'marinaAdmin'@'localhost';
 
 -- create marinaAdmin and grant them all privileges to the marina database
 CREATE USER 'marinaAdmin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Moff@Bay1#';
@@ -18,7 +18,37 @@ DROP TABLE IF EXISTS waitlist;
 DROP TABLE IF EXISTS reservations;
 
 /*
-CREATE POPULATE BOATS TABLE
+CREATE and POPULATE USERS TABLE
+*/
+
+CREATE TABLE IF NOT EXISTS users (
+    userID int NOT NULL AUTO_INCREMENT,
+    first_Name varchar(20) NOT NULL,
+    last_Name varchar(20) NOT NULL,
+    email varchar(33) NOT NULL,
+    phone_Number bigint(10) NOT NULL,
+    password varchar(20) NOT NULL,
+    PRIMARY KEY (userID)
+);
+
+INSERT INTO marinadb.users
+(first_Name, last_Name, email, phone_Number, password)
+VALUES
+('Sean', 'Wollock', 'swollock@gmail.com', 3426840681, 'M0nkeys');
+
+INSERT INTO marinadb.users
+(first_Name, last_Name, email, phone_Number, password)
+VALUES
+('Phil', 'Steimer', 'psteimer@gmail.com', 9023450293, 'r3dc@rs');
+
+INSERT INTO marinadb.users
+(first_Name, last_Name, email, phone_Number, password)
+VALUES
+('Mary', 'Neeva', 'mneeva@gmail.com', 1108337596, 'Sun$hine');
+
+
+/*
+CREATE POPU`users`LATE BOATS TABLE
 */
 CREATE TABLE IF NOT EXISTS boats (
   boatID int NOT NULL AUTO_INCREMENT,
@@ -140,6 +170,41 @@ CREATE TABLE IF NOT EXISTS rates (
 );
 
 INSERT INTO marinadb.rates (pricePerFoot,electricPower) VALUES (10.50,10.00);
+
+/*
+CREATE AND POPULATE reservations TABLE
+*/
+
+CREATE TABLE IF NOT EXISTS reservations (
+    reservationID int NOT NULL AUTO_INCREMENT,
+    total_Cost DECIMAL(19, 2) NOT NULL,
+    checkin_Date date NOT NULL,
+    checkout_Date date NOT NULL,
+    userID int NOT NULL,
+    boatID int NOT NULL,
+    slipID char(3) NOT  NULL,
+    ratesID int NOT NULL,
+    PRIMARY KEY (reservationID),
+    FOREIGN KEY (userID) REFERENCES users(userID),
+    FOREIGN KEY (boatID) REFERENCES boats(boatID),
+    FOREIGN KEY (slipID) REFERENCES slips(slipID),
+    FOREIGN KEY (ratesID) REFERENCES rates(ratesID)
+);
+
+INSERT INTO marinadb.reservations
+(total_Cost, checkin_Date, checkout_Date,userID,boatID,slipID,ratesID)
+VALUES
+(75.30, '2024-05-22', '2024-05-23',1,1,'A1',1);
+
+INSERT INTO marinadb.reservations
+(total_Cost, checkin_Date, checkout_Date,userID,boatID,slipID,ratesID)
+VALUES
+(32.52, '2024-05-25', '2024-05-28',2,2,'B5',1);
+
+INSERT INTO marinadb.reservations
+(total_Cost, checkin_Date, checkout_Date,userID,boatID,slipID,ratesID)
+VALUES
+(98.42, '2024-06-20', '2024-06-27',3,3,'C24',1);
 
 -- create waitlist table
 CREATE TABLE IF NOT EXISTS  waitlist (
