@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS users (
     last_Name varchar(20) NOT NULL,
     email varchar(33) NOT NULL,
     phone_Number bigint(10) NOT NULL,
-    password varchar(20) NOT NULL,
+    password varchar(256) NOT NULL,
     PRIMARY KEY (userID)
 );
 
