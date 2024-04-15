@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Moffat Bay Marina</title>
     <script type="text/javascript" src="../js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <?php
     require_once "../php/Database.php";
@@ -87,42 +92,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 <body>
     <!-- HEADER -->
-    <div class="header">
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Reservations</li>
-            </ul>
-            <ul>
-                <li>Login</li>
-            </ul>
-        </nav>
-        <header>
-            <h1>Moffat Bay Marina</h1>
-        </header>
+    <header>
+        <h1><img src="../images/Logo.png" alt="Moffat Bay Marina Logo" id="logo">Moffat Bay Marina</h1>
+    </header>
+    <div class="topnav" id="myTopnav">
+        <a href="../index.html">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Reservations</a>
+        <a href="login.php" id="login" class="active">Login</a>
+        <a href="javascript:void(0);" class="icon" onclick="topNav()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
     <!-- MAIN CONTENT -->
-    <div>
-        <h1>Login</h1>
-        <h3>Welcome to Moffat Bay Marina!</h3>
+    <div class="container login">
+        <h2>Welcome to Moffat Bay Marina!</h2>
         <b>Please enter your email and password to log in!</b>
+        <p>Don't have an account? Create one <a href="register.php">here</a>!</p>
         <form action="" method="post">
-            <b>Email:</b>
+            <b>Email:</b> <br>
             <input type="email" name="email_address" 
             value="<?php if (isset($_POST['email_address'])) echo $_POST['email_address']; ?>">
             <span class="error">* <?php echo $emailAddress_err;?></span>
             <br>
-            <b>Password</b>
+            <br>
+            <b>Password:</b> <br>
             <input type="password" name="password" id="password" >
             <span class="error">* <?php echo $password_err;?></span>
             <input type="checkbox" name="show_password" id="show_password" onclick="showPass()"> Show Password
             <br>
             <input type="checkbox" name="remember" id="remember"> Remember Me
             <br>
-            <input type="submit" value="Login">
+            <input class="btn btn-primary" type="submit" value="Login">
         </form>
-        <a href="">Forgot Your Password?</a>
+        <a class="align-right" href="">Forgot Your Password?</a>
+    </div>
+    <!-- FOOTER -->
+    <div class="containe-fluid">
+        <footer class="py-3 my-4">
+            <p>Copyright (c) Moffat Bay Marina</p>
+        </footer>
     </div>
 </body>
 </html>

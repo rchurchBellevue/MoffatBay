@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Moffat Bay Marina</title>
     <script type="text/javascript" src="../js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<style>
-    .error {color: #FF0000;}
-</style>
 <?php
     require_once "../php/Database.php";
 
@@ -161,76 +163,77 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 <body>
     <!-- HEADER -->
-    <div class="header">
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Reservations</li>
-            </ul>
-            <ul>
-                <li>Login</li>
-            </ul>
-        </nav>
-        <header>
-            <h1>Moffat Bay Marina</h1>
-        </header>
+    <header>
+        <h1><img src="../images/Logo.png" alt="Moffat Bay Marina Logo" id="logo">Moffat Bay Marina</h1>
+    </header>
+    <div class="topnav" id="myTopnav">
+        <a href="../index.html">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Reservations</a>
+        <a href="login.php" id="login">Login</a>
+        <a href="javascript:void(0);" class="icon" onclick="topNav()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
     <!-- MAIN CONTENT -->
-    <main>
-        <div>
-            <h3>Welcome to Moffat Bay Marina!</h3>
-            <p>Please Enter a Valid Email Address</p>
-            <p>
-                <b>Phone Number Format:</b> <br>
-                Please enter in a 10 digit area code phone number combination
-            </p>
-            <p>
-                <b>Password Requirements:</b> <br>
-                At least 8 characters <br>
-                Include at least one uppercase letter and one lowercase letter.
-            </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg register">
+                <h3>Welcome to Moffat Bay Marina!</h3>
+                <br>
+                <p>Please Enter a Valid Email Address</p>
+                <p>
+                    <b>Phone Number Format:</b> <br>
+                    Please enter in a 10 digit area code phone number combination
+                </p>
+                <p>
+                    <b>Password Requirements:</b> <br>
+                    At least 8 characters <br>
+                    Include at least one uppercase letter and one lowercase letter.
+                </p>
+            </div>
+            <div class="col-md register col-right">
+                <form action="" method="post">
+                    <b>First Name:</b>
+                    <input type="text" id="first_name" name="first_name" 
+                    value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>">
+                    <span class="error">* <?php echo $firstName_err;?>
+                    </span>
+                    <br>
+                    <b>Last Name:</b>
+                    <input type="text" id="last_name" name="last_name" 
+                    value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>">
+                                    <span class="error">* <?php echo $lastName_err;?></span>
+                    <br>
+                    <b>Email:</b>
+                    <input type="email" id="email_address" name="email_address" 
+                    value="<?php if (isset($_POST['email_address'])) echo $_POST['email_address']; ?>">
+                    <span class="error">* <?php echo $emailAddress_err;?></span>
+                    <br>
+                    <b>Phone:</b>
+                    <input type="tel" id="phone" name="phone" 
+                    value="<?php if (isset($_POST['phone'])) echo $_POST['phone']; ?>">
+                    <span class="error">* <?php echo $phoneNbr_err;?></span>
+                    <br>
+                    <b>Password:</b>
+                    <input type="password" id="password" name="password" 
+                    value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>">
+                    <input type="checkbox" id="show_password" name="show_password" id="show_password" onclick="showPass()">
+                    Show Password
+                    <span class="error">* <?php echo $password_err;?></span>
+                    <br>
+                    <b>Confirm Password:</b>
+                    <input type="password" id="confirm_password" name="confirm_password" 
+                    value="<?php if (isset($_POST['confirm_password'])) echo $_POST['confirm_password']; ?>">
+                    <input type="checkbox" id="show_password" name="show_password" id="show_password" onclick="showConfirmPass()">                
+                    Show Password
+                    <span class="error">* <?php echo $confirmpassword_err;?></span>
+                    <br>
+                    <input class="btn-primary" type="submit" value="Register">
+                </form>
+            </div>
         </div>
-        <div>
-            <form action="" method="post">
-                <b>First Name:</b>
-                <input type="text" id="first_name" name="first_name" 
-                value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>">
-                <span class="error">* <?php echo $firstName_err;?>
-                </span>
-                <b>Last Name:</b>
-                <input type="text" id="last_name" name="last_name" 
-                value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>">
-                                <span class="error">* <?php echo $lastName_err;?></span>
-                <br>
-                <b>Email:</b>
-                <input type="email" id="email_address" name="email_address" 
-                value="<?php if (isset($_POST['email_address'])) echo $_POST['email_address']; ?>">
-                <span class="error">* <?php echo $emailAddress_err;?></span>
-                <br>
-                <b>Phone:</b>
-                <input type="tel" id="phone" name="phone" 
-                value="<?php if (isset($_POST['phone'])) echo $_POST['phone']; ?>">
-                <span class="error">* <?php echo $phoneNbr_err;?></span>
-                <br>
-                <b>Password:</b>
-                <input type="password" id="password" name="password" 
-                value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>">
-                <input type="checkbox" id="show_password" name="show_password" id="show_password" onclick="showPass()">
-                Show Password
-                <span class="error">* <?php echo $password_err;?></span>
-                <br>
-                <b>Confirm Password:</b>
-                <input type="password" id="confirm_password" name="confirm_password" 
-                value="<?php if (isset($_POST['confirm_password'])) echo $_POST['confirm_password']; ?>">
-                <input type="checkbox" id="show_password" name="show_password" id="show_password" onclick="showConfirmPass()">                
-                 Show Password
-                <span class="error">* <?php echo $confirmpassword_err;?></span>
-                <br>
-                <input type="submit" value="Login">
-            </form>
-        </div>
-    </main>
+    </div>
     <!-- FOOTER -->
     <footer>
         <p>Copyright (c) Moffat Bay Marina</p>
