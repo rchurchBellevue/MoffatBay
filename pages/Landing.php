@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moffat Bay Marina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <?php
 
         $servername = "localhost";
-        $user = "marinaAdmin";
-        $pass = "Moff@Bay1#";
+        $user = "root";
+        $pass = "root";
         $dbname = "marinadb";
 
         try {
@@ -25,12 +28,13 @@
 
         "GRANT ALL PRIVILEGES ON marinaDB.* TO 'marinaAdmin'@'localhost';",
 
-
+        "DROP TABLE IF EXISTS reservations;",
+        "DROP TABLE IF EXISTS waitlist;",
+        "DROP TABLE IF EXISTS boats;",
         "DROP TABLE IF EXISTS users;",
         "DROP TABLE IF EXISTS slips;",
-        "DROP TABLE IF EXISTS boats;",
-        "DROP TABLE IF EXISTS waitlist;",
-        "DROP TABLE IF EXISTS reservations;",
+        "DROP TABLE IF EXISTS rates;",
+
 
         "CREATE TABLE IF NOT EXISTS users (
             userID int NOT NULL AUTO_INCREMENT,
@@ -235,21 +239,19 @@
 
 </head>
 <body>
+
     <!-- HEADER -->
-    <div class="head">
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Reservations</li>
-            </ul>
-            <ul>
-                <li>Login</li>
-            </ul>
-        </nav>
-        <header>
-            <h2>Moffat Bay Marina</h2>
-        </header>
+    <header>
+        <h1><img src="../images/Logo.png" alt="Moffat Bay Marina Logo" id="logo">Moffat Bay Marina</h1>
+    </header>
+    <div class="topnav" id="myTopnav">
+        <a href="../index.html">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Reservations</a>
+        <a href="login.php" id="login">Login</a>
+        <a href="javascript:void(0);" class="icon" onclick="topNav()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
     <!-- MAIN CONTENT -->
     <!-- FOOTER -->
