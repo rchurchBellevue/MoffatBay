@@ -188,15 +188,16 @@ input {
 .reservation{
     text-align: center;
     padding: 2rem ;
-    max-width: 60rem;
+    max-width: 50rem;
+    max-height: 30rem;
     background-color: var(--dark);
     color: var(--white);
     margin-left: 2rem;
 }
 
-.reservation form{
-    display: block;
-    text-align: left;
+.reservation img{
+    max-height: 75%;
+    max-width: auto;
 }
 
 .reservation select {
@@ -204,11 +205,9 @@ input {
     color: black;
 }
 
-.reservation select, input {
+.reservation input {
     display: block ;
 }
-
-
 
 /* FOOTER STYLE */
 footer {
