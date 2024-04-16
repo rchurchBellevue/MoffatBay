@@ -185,6 +185,31 @@ input {
     object-fit: cover;
 }
 
+.reservation{
+    text-align: center;
+    padding: 2rem ;
+    max-width: 60rem;
+    background-color: var(--dark);
+    color: var(--white);
+    margin-left: 2rem;
+}
+
+.reservation form{
+    display: block;
+    text-align: left;
+}
+
+.reservation select {
+    display: block ;
+    color: black;
+}
+
+.reservation select, input {
+    display: block ;
+}
+
+
+
 /* FOOTER STYLE */
 footer {
     position: fixed;
