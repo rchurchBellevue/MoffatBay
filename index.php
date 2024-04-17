@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moffat Bay Marina</title>
-    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 
     <?php
@@ -247,13 +247,13 @@
 
     <!-- HEADER -->
     <header>
-        <h1><img src="../images/Logo.png" alt="Moffat Bay Marina Logo" id="logo">Moffat Bay Marina</h1>
+        <h1><img src="images/Logo.png" alt="Moffat Bay Marina Logo" id="logo">Moffat Bay Marina</h1>
     </header>
     <div class="topnav" id="myTopnav">
-        <a href="../index.html">Home</a>
+        <a href="index.php">Home</a>
         <a href="#">About Us</a>
-        <a href="#">Reservations</a>
-        <a href="login.php" id="login">Login</a>
+        <a href="pages/Reservation.php">Reservations</a>
+        <a href="pages/login.php" id="login">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
             <i class="fa fa-bars"></i>
         </a>
@@ -264,18 +264,17 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="../images/Boats.jpg" alt="Los Angeles" style="width:100%;">
+                    <img src="images/Boats.jpg" alt="Los Angeles" style="width:100%;">
                 </div>
 
                 <div class="item">
-                    <img src="../images/Lake.jpg" alt="Chicago" style="width:100%;">
+                    <img src="images/Lake.jpg" alt="Chicago" style="width:100%;">
                 </div>
 
                 <div class="item">
-                    <img src="../images/Marina.jpg" alt="New york" style="width:100%;">
+                    <img src="images/Marina.jpg" alt="New york" style="width:100%;">
                 </div>
             </div>
-c:\Users\rc218\Downloads\index.html
             <!-- Left and right controls -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>

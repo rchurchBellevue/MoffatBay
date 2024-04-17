@@ -98,10 +98,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1><img src="../images/Logo.png" alt="Moffat Bay Marina Logo" id="logo">Moffat Bay Marina</h1>
     </header>
     <div class="topnav" id="myTopnav">
-        <a href="../pages/Landing.php">Home</a>
+        <a href="../index.php">Home</a>
         <a href="#">About Us</a>
-        <a href="../pages/Reservation.php">Reservations</a>
-        <a href="../pages/login.php" id="login" class="active">Login</a>
+        <a href="Reservation.php">Reservations</a>
+        <a href="login.php" id="login" class="active">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
             <i class="fa fa-bars"></i>
         </a>
