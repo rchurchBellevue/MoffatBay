@@ -17,10 +17,10 @@
         <h1><img src="../images/Logo.png" alt="Moffat Bay Marina Logo" id="logo">Moffat Bay Marina</h1>
     </header>
     <div class="topnav" id="myTopnav">
-        <a href="../index.html">Home</a>
+        <a href="../index.php">Home</a>
         <a href="#">About Us</a>
-        <a href="#">Reservations</a>
-        <a href="pages/login.php" id="login">Login</a>
+        <a href="Reservation.php">Reservations</a>
+        <a href="login.php" id="login">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
             <i class="fa fa-bars"></i>
         </a>
