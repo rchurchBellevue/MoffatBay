@@ -41,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verify a Check in date was selected
 
-
-    if (isset($_POST["frmCheckIn"])) {
+    
+    if (isset($_POST["frmCheckIn"]) && !empty($_POST["frmCheckIn"])) {
         $checkInDate = $_POST["frmCheckIn"];
     } else {
         $checkInDateError = 'Please select a checkin date.';
@@ -63,11 +63,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['slipSize']=$boatSlipSize;
                 $_SESSION['boatName']=$boatName;
                 $_SESSION['reservationDate']=$checkInDate;
+                
+                
                 // If we have at least one row we can book, otherwise we'll need to go to waitlist
                 if ($stmt->rowCount() >= 1) {
                     if ($row = $stmt->fetch()) {
                         $_SESSION['slipID'] = $row["slipID"];
-                        // Redirect user to welcome page
+                        $_SESSION['AddToWaitList']='N';
+                        // Redirect user to confirmation page
                         header("location: ReservationConfirmation.php");
                     } 
                 }
@@ -100,8 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="topnav" id="myTopnav">
         <a href="../index.php">Home</a>
         <a href="#">About Us</a>
-        <a href="Reservation.php">Reservations</a>
-        <a href="login.php" id="login" class="active">Login</a>
+        <a href="../pages/Reservation.php">Reservations</a>
+        <a href="../pages/login.php" id="login" class="active">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
             <i class="fa fa-bars"></i>
         </a>

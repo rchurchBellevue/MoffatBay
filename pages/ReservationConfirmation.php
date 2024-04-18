@@ -17,10 +17,10 @@
         <h1><img src="../images/Logo.png" alt="Moffat Bay Marina Logo" id="logo">Moffat Bay Marina</h1>
     </header>
     <div class="topnav" id="myTopnav">
-        <a href="../index.php">Home</a>
+        <a href="../index.html">Home</a>
         <a href="#">About Us</a>
-        <a href="Reservation.php">Reservations</a>
-        <a href="login.php" id="login">Login</a>
+        <a href="../pages/Reservation.php">Reservations</a>
+        <a href="../pages/login.php" id="login">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
             <i class="fa fa-bars"></i>
         </a>
@@ -31,11 +31,11 @@
         <p>
             <?php 
             session_start();
-            echo($_SESSION['slipSize']);
-            echo($_SESSION['boatName']);
-            echo($_SESSION['reservationDate']);
-            echo($_SESSION['slipID']);
-            echo($_SESSION['AddToWaitList']);
+            echo("Size ".$_SESSION['slipSize']."<BR>");
+            echo("Boat Name ".$_SESSION['boatName']."<BR>");
+            echo("Check in ".$_SESSION['reservationDate']."<BR>");
+            echo("Slip ".$_SESSION['slipID']."<BR>");
+            echo("Waitllist? ".$_SESSION['AddToWaitList']."<BR>");
             ?>
         </p>
         </div>
