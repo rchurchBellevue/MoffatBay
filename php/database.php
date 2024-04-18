@@ -20,6 +20,7 @@ public static function getConn(){
           catch(PDOException $e)
           {
              $error=$e->getMessage(); 
+             echo($error);
              exit();
           }
     }
