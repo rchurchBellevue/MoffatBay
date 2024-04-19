@@ -18,8 +18,9 @@ session_start();
 
 // Define variables and initialize with empty values
 $boatName = $boatSlipSize = "";
+$boatLength;
 $checkInDate;
-$boatNameError = $boatLengthError = $checkInDateError =  "";
+$boatNameError = $boatLengthError = $checkInDateError  =  "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,10 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Verify a boat length was selected
-    if (isset($_REQUEST['frmBoatLength']) && $_REQUEST['frmBoatLength'] == "") {
-        $boatLengthError = 'Please select the size of your boat.';
-    } else {
-        $boatSlipSize = $_REQUEST['frmBoatLength'];
+    if (empty(trim($_POST["frmBoatLength"]))) {
+        $boatLengthError = "Please enter your boat's length.";
+    } 
+    else if (!preg_match('/^[1-9]\d*$/',trim($_POST["frmBoatLength"]))) {
+        $boatLengthError = "Please enter a positive number.";
+    }
+    else {
+        $boatLength = trim($_POST["frmBoatLength"]);
     }
 
     // Verify a Check in date was selected
@@ -48,8 +53,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $checkInDateError = 'Please select a checkin date.';
     }
 
+  
+
+
     // Validate credentials
-    if (empty($boatNameError) && empty($boatLengthError) && empty($checkInDateError)) {
+    if (empty($boatNameError) && empty($boatLengthError) && empty($checkInDateError) ) {
+
+        if($boatLength<=26){
+            $boatSlipSize=1;
+        }
+        else if($boatLength<=40){
+            $boatSlipSize=2;
+
+        }
+        else {
+            $boatSlipSize=3;
+        }
 
         // Prepare a select statement
         $sql = "SELECT slipID FROM slips WHERE slipSize = :parmSlip AND availability_status=0;";
@@ -62,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($stmt->execute()) {
                 $_SESSION['slipSize']=$boatSlipSize;
                 $_SESSION['boatName']=$boatName;
+                $_SESSION['boatLength']=$boatLength;
                 $_SESSION['reservationDate']=$checkInDate;
                 
                 
@@ -130,20 +150,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <span class="error">* <?php echo $boatNameError; ?></span>
                     </div>
                     <div class="form-select">
-                        <label>Select your boat length</label>
-                        <select name="frmBoatLength">
-                            <option value="">Select...</option>
-                            <option value="1">0 to 26 feet</option>
-                            <option value="2">27 to 40 feet</option>
-                            <option value="3">41 to 50 feet</option>
-                        </select>
+                        <label>Indicate your boat length</label>
+                        <input type="text" name="frmBoatLength" value="<?php if (isset($_POST['frmBoatLength'])) echo $_POST['frmBoatLength']; ?>">
+                        <span class="error">* <?php echo $boatLengthError; ?></span>
                     </div>
-                    <span class="error">* <?php echo $boatLengthError; ?></span>
                     <div class="date-select">
                         <label>Check In Date:</label>
                         <input type="date" id="checkInDate" name="frmCheckIn">
                     </div>
-                    <span class="error">* <?php echo $checkInDateError; ?></span>
+                   
                     <input type="submit" value="Search">
                 </form>
 

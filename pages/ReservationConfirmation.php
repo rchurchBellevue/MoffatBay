@@ -33,6 +33,7 @@
             session_start();
             echo("Size ".$_SESSION['slipSize']."<BR>");
             echo("Boat Name ".$_SESSION['boatName']."<BR>");
+            echo("Boat Length ".$_SESSION['boatLength']."<BR>");
             echo("Check in ".$_SESSION['reservationDate']."<BR>");
             echo("Slip ".$_SESSION['slipID']."<BR>");
             echo("Waitllist? ".$_SESSION['AddToWaitList']."<BR>");
