@@ -17,7 +17,7 @@
         <h1><img src="../images/Logo.png" alt="Moffat Bay Marina Logo" id="logo">Moffat Bay Marina</h1>
     </header>
     <div class="topnav" id="myTopnav">
-        <a href="../index.html">Home</a>
+        <a href="../index.php">Home</a>
         <a href="#">About Us</a>
         <a href="../pages/Reservation.php">Reservations</a>
         <a href="../pages/login.php" id="login">Login</a>
@@ -27,16 +27,19 @@
     </div>
     <!-- MAIN CONTENT -->
     <div class="container login">
-        <h1>Reservation Confirmation Placeholder</h1>
+        <h1>Reservation Confirmation</h1>
         <p>
             <?php 
             session_start();
-            echo("Size ".$_SESSION['slipSize']."<BR>");
-            echo("Boat Name ".$_SESSION['boatName']."<BR>");
-            echo("Boat Length ".$_SESSION['boatLength']."<BR>");
-            echo("Check in ".$_SESSION['reservationDate']."<BR>");
-            echo("Slip ".$_SESSION['slipID']."<BR>");
-            echo("Waitllist? ".$_SESSION['AddToWaitList']."<BR>");
+            echo("<strong>Reservation ID:</strong> ".$_SESSION['reservationID']."<br>");
+            echo "<strong>Boat Name:</strong> ".$_SESSION['boatName']."<br>";
+            echo "<strong>Boat Size: </strong>".$_SESSION['boatLength']."<br>";
+            echo "<strong>Check-in Date: </strong>".$_SESSION['reservationDate']."<br>";
+            echo "<strong>Checkout Date: </strong>".$_SESSION['checkoutDate']."<br>"; 
+            echo "<strong>Slip Size: </strong>".$_SESSION['slipSize']."<br>";
+            echo "<strong>Slip ID: </strong>".$_SESSION['slipID']."<br>";
+            echo "Waitlist? ".$_SESSION['AddToWaitList']."<BR>";
+            echo "<strong>Reservation Cost: </strong>$".$_SESSION['totalCost']."<br>"
             ?>
         </p>
         </div>
