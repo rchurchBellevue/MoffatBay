@@ -91,13 +91,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION['slipID'] = $row["slipID"];
                         $_SESSION['AddToWaitList']='N';
                         // Redirect user to confirmation page
-                        header("location: ReservationConfirmation.php");
+                        header("location: ReservationSummary.php");
                     } 
                 }
                 else {
                     $_SESSION['slipID'] = null;
                     $_SESSION['AddToWaitList']='Y';
-                    header("location: ReservationConfirmation.php");   
+                    header("location: ReservationSummary.php");   
                 }
             }
         } else {
