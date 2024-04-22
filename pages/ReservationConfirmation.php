@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Moffat Bay Marina</title>
+    <title>Reservation - Moffat Bay Marina</title>
     <script type="text/javascript" src="../js/script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
     </header>
     <div class="topnav" id="myTopnav">
         <a href="../index.php">Home</a>
-        <a href="#">About Us</a>
+        <a href="AboutUs.php">About Us</a>
         <a href="../pages/Reservation.php">Reservations</a>
         <a href="../pages/login.php" id="login">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">

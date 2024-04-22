@@ -209,6 +209,45 @@ input {
     display: block ;
 }
 
+.aboutUsContainer {
+    width:50%;
+    float: left;
+}
+
+.aboutUsContainer img {
+    margin: 10%;
+    width: 700px;
+    height: auto;
+}
+
+#aboutUs {
+    color: white;
+    background-color: #7BA2E2;
+    margin-bottom: 30px;
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 10px;
+}
+
+#aboutUs h2 {
+    margin-top: 5px;
+}
+
+#aboutUs p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#contactUs {
+    color: white;
+    background-color: #7BA2E2;
+    padding: 10px;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
 /* FOOTER STYLE */
 footer {
     position: fixed;

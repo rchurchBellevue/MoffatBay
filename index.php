@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moffat Bay Marina</title>
@@ -251,7 +250,7 @@
     </header>
     <div class="topnav" id="myTopnav">
         <a href="index.php">Home</a>
-        <a href="#">About Us</a>
+        <a href="pages/AboutUs.php">About Us</a>
         <a href="pages/Reservation.php">Reservations</a>
         <a href="pages/login.php" id="login">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">

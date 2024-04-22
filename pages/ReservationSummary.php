@@ -102,7 +102,7 @@ if(isset($_POST['confirm'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Moffat Bay Marina</title>
+    <title>Reservation - Moffat Bay Marina</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -113,7 +113,7 @@ if(isset($_POST['confirm'])) {
     </header>
     <div class="topnav" id="myTopnav">
         <a href="../index.php">Home</a>
-        <a href="#">About Us</a>
+        <a href="AboutUs.php">About Us</a>
         <a href="../pages/Reservation.php">Reservations</a>
         <a href="../pages/login.php" id="login">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
