@@ -97,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </header>
     <div class="topnav" id="myTopnav">
         <a href="../index.php">Home</a>
-        <a href="#">About Us</a>
+        <a href="AboutUs.php">About Us</a>
         <a href="Reservation.php">Reservations</a>
         <a href="login.php" id="login" class="active">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
