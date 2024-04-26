@@ -15,16 +15,18 @@
     require_once "../php/Database.php";
 
   // Define variables and initialize with empty values
-$firstName = $lastName = $emailAddress=$phoneNbr=$password = $confirmpassword= "";
+$firstName = $lastName = $emailAddress=$phoneNbr=$boatName=$boatLength=$password = $confirmpassword= "";
 $firstName_err = "";
 $lastName_err = "";
 $emailAddress_err = "";
 $phoneNbr_err = "";
 $password_err = "";
 $confirmpassword_err = "";
+$boatname_err = "";
+$boatlength_err = "";
 
 
-
+session_start();
 $conn=Database::getConn();
  
 // Processing form data when form is submitted
@@ -58,6 +60,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     else {
         $phoneNbr=trim($_POST["phone"]);
     }
+
+    //Validate boatname
+    if(empty(trim($_POST["boatname"]))){
+        $boatname_err = "Please enter a boat name.";
+      }
+      else {
+          $boatName=trim($_POST["boatname"]);
+      }
+
+    //Validate boatLength
+    if (empty(trim($_POST["boatlength"]))) {
+        $boatLengthError = "Please enter your boat's length.";
+    } 
+    else if (!preg_match('/^[1-9]\d*$/',trim($_POST["boatlength"]))) {
+        $boatLengthError = "Please enter a positive number.";
+    }
+    else {
+        $boatLength = trim($_POST["boatlength"]);
+    }
+
 
     // Validate username
     if(empty(trim($_POST["email_address"]))){
@@ -145,14 +167,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 // Redirect to login page
-                header("location: success.php");
+                $userID = $conn->lastInsertId();
+                $_SESSION["id"] = $userID;
+                
             } 
             else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
+            $sql = "INSERT INTO boats (boat_name,boat_Length,userID) VALUES (:boatname,:boatlength,:userid)";
+            if($stmt = $conn->prepare($sql)){
+                // Bind variables to the prepared statement as parameters
+                $stmt->bindParam(":boatname", $param_boatName, PDO::PARAM_STR);
+                $stmt->bindParam(":boatlength", $param_boatLength, PDO::PARAM_INT);
+                $stmt->bindParam(":userid", $param_boatUserID, PDO::PARAM_INT);
+      
+                $param_boatName = $boatName;
+                $param_boatLength = $boatLength;
+                $param_boatUserID =$userID;
+
+
+            // Attempt to execute the prepared statement
+            if($stmt->execute()){
+                // Redirect to success page
+                header("location: success.php");
+            } 
+            else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }    
 
             // Close statement
             unset($stmt);
+        }
         }
     }
     
@@ -214,6 +259,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <input type="tel" id="phone" name="phone" 
                     value="<?php if (isset($_POST['phone'])) echo $_POST['phone']; ?>">
                     <span class="error">* <?php echo $phoneNbr_err;?></span>
+                    <br>
+                    <b>Boat Name:</b>
+                    <input type="text" id="boatname" name="boatname" 
+                    value="<?php if (isset($_POST['boatname'])) echo $_POST['boatname']; ?>">
+                    <span class="error">* <?php echo $boatname_err;?></span>
+                    <br>
+                    <b>Boat Length:</b>
+                    <input type="text" id="boatlength" name="boatlength" 
+                    value="<?php if (isset($_POST['boatlength'])) echo $_POST['boatlength']; ?>">
+                    <span class="error">* <?php echo $boatlength_err;?></span>
                     <br>
                     <b>Password:</b>
                     <input type="password" id="password" name="password" 

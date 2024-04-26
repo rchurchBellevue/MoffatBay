@@ -14,7 +14,8 @@
 <?php
     require_once "../php/Database.php";
     $conn=Database::getConn();
-
+    session_start();
+                            
 // Define variables and initialize with empty values
 $emailAddress = $password = "";
 $emailAddress_err = $password_err =  "";
@@ -58,11 +59,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $hashed_password = $row["password"];
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
-                            session_start();
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $userID;
+                            $_SESSION["id"] = $id;
                             $_SESSION["username"] = $emailAddress;                            
                             
                             // Redirect user to welcome page
