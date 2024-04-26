@@ -21,6 +21,7 @@ if(isset($_POST['confirm'])) {
 
             // Get boat size 
             $boatSize = $_SESSION['boatLength'];
+            $boatName=  $_SESSION['boatName'];
 
             // Calculate total cost
             $totalCost = ($pricePerFoot * $boatSize) + $electricPowerCharge;
@@ -28,21 +29,7 @@ if(isset($_POST['confirm'])) {
             // Store total cost in session
             $_SESSION['totalCost'] = $totalCost;
 
-            // Get userID based on boatName
-            $boatName = $_SESSION['boatName'];
-            $sqlUserID = "SELECT userID FROM boats WHERE boat_Name = :boatName"; 
-            $stmtUserID = $conn->prepare($sqlUserID); 
-            $stmtUserID->bindParam(':boatName', $boatName); 
-            $stmtUserID->execute(); 
-
-            if ($stmtUserID) { 
-                $userIDRow = $stmtUserID->fetch(PDO::FETCH_ASSOC); 
-                $userID = $userIDRow['userID']; 
-            } else {
-                echo "Error: Unable to retrieve userID."; 
-                exit; 
-            }
-
+            
             // Get boatID based on boatName
             $sqlBoatID = "SELECT boatID FROM boats WHERE boat_Name = :boatName"; 
             $stmtBoatID = $conn->prepare($sqlBoatID); 
@@ -73,7 +60,7 @@ if(isset($_POST['confirm'])) {
             $_SESSION['checkoutDate'] = $checkoutDate;
 
             $stmtInsert->bindParam(':checkoutDate', $checkoutDate);
-            $stmtInsert->bindParam(':userID', $userID);
+            $stmtInsert->bindParam(':userID', $_SESSION["id"]);
             $stmtInsert->bindParam(':boatID', $boatID);
             $stmtInsert->bindParam(':slipID', $_SESSION['slipID']);
             $stmtInsert->execute(); 

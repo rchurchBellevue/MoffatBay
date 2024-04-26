@@ -21,10 +21,17 @@ $boatName = $boatSlipSize = "";
 $boatLength;
 $checkInDate;
 $boatNameError = $boatLengthError = $checkInDateError  =  "";
+$loginError='';
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+   
+    if(array_key_exists('username',$_SESSION) && !empty($_SESSION['username'])) {
+        $loginError="" ;
+    }
+    else {
+       $loginError="You must be logged in to submit a reservation search";
+    }
 
     // Check if boat name is empty
     if (empty(trim($_POST["frmBoatName"]))) {
@@ -57,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Validate credentials
-    if (empty($boatNameError) && empty($boatLengthError) && empty($checkInDateError) ) {
+    if (empty($boatNameError) && empty($boatLengthError) && empty($checkInDateError) && empty($loginError)) {
 
         if($boatLength<=26){
             $boatSlipSize=1;
@@ -142,7 +149,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="col-md reservation col-right">
                 <h3> Slip Reservation Form </h3>
+                <p> You must <a href="login.php">login</a> to reserve a slip <p>
                 <p>Fill in the below information to view availability of slips for your boat </p>
+                <span class="error">* <?php echo $loginError; ?></span>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div>
                         <label>Boat Name:</label>
