@@ -213,6 +213,7 @@
         "CREATE TABLE IF NOT EXISTS  waitlist (
             waitlistID int NOT NULL AUTO_INCREMENT,
             boatID int NOT NULL,
+            waitSlipSize  char(1) DEFAULT NULL,
 
             PRIMARY KEY (waitlistID),
 
@@ -222,12 +223,10 @@
         );",
 
 
-        "INSERT INTO marinadb.waitlist (boatID)
-        VALUES (2),
-               (1),
-               (3);"];
-
-
+        "INSERT INTO marinadb.waitlist (boatID,waitslipSize)
+        VALUES (2,'1'),
+               (1,'1'),
+               (3,'1');"];
 
             foreach ($statements as $statement) {
                 $conn->exec($statement);
@@ -253,6 +252,7 @@
         <a href="pages/AboutUs.php">About Us</a>
         <a href="pages/Reservation.php">Reservations</a>
         <a href="pages/ReservationLookup.php" id="lookup">Reservation Lookup</a>
+        <a href="pages/WaitListLookup.php" id="lookup">WaitList Lookup</a>
         <a href="pages/login.php" id="login">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
             <i class="fa fa-bars"></i>
