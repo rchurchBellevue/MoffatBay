@@ -103,6 +103,7 @@ if(isset($_POST['confirm'])) {
         <a href="AboutUs.php">About Us</a>
         <a href="../pages/Reservation.php">Reservations</a>
         <a href="../pages/ReservationLookup.php" id="lookup">Reservation Lookup</a>
+        <a href="../pages/WaitListLookup.php" id="lookup">WaitList Lookup</a>
         <a href="../pages/login.php" id="login">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
             <i class="fa fa-bars"></i>
