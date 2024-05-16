@@ -33,7 +33,7 @@ if (isset($_POST['submit']) && (isset($_POST['frmSize']) && $_POST['frmSize'] !=
 
         $waitString="";
         if (!empty($waitArray)) {
-            $waitString= "There are currently ".count($waitArray)." boats ahead of your in the queue";
+            $waitString= "There are currently ".count($waitArray)." boats ahead of you in the queue";
         } else {
             $waitString= "Currently no waiting for a slip of that size";
         }

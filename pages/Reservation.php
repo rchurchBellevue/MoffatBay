@@ -139,17 +139,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </a>
     </div>
     <!-- MAIN CONTENT -->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg reservation">
-                <h3>Welcome to Moffat Bay Marina!</h3>
-                <br>
-                <p>Click the map to get a detailed view of the marina</p>
-                <a href="../images/map.png">
-                <img border="0" alt="Map" src="../images/map.png" width="400" height="400">
+            <div class="col-lg-7 reservation" >
+                <h4 style="color:rgb(235, 252, 3);"><b >Map of our Marina: <br>
+                    Click the map to get a larger view</b></h4>
+                <a href="../images/MarinaCrop.png">
+                <img style="width: 95%; height: 550px;" src="../images/MarinaCrop.png" alt="Marina map">
                 </a>
             </div>
-            <div class="col-md reservation col-right">
+            <div class="col-lg-5 reservation ">
                 <h3> Slip Reservation Form </h3>
                 <p> You must <a href="login.php">login</a> to reserve a slip <p>
                 <p>Fill in the below information to view availability of slips for your boat </p>

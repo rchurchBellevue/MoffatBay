@@ -131,9 +131,17 @@ a:hover {
     font-weight: 700;
 }
 
-.login, .register {
+.login {
     text-align: center;
     padding: 3rem;
+    max-width: 40rem;
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+.register {
+    text-align: center;
+    padding: 10rem;
     max-width: 40rem;
     background-color: var(--dark);
     color: var(--white);
@@ -147,6 +155,7 @@ a:hover {
     margin: 4rem 0;
     margin-left: 2rem;
 }
+
 
 form {
     text-align: left;
@@ -195,10 +204,7 @@ input {
     margin-left: 2rem;
 }
 
-.reservation img{
-    max-height: 75%;
-    max-width: auto;
-}
+
 
 .reservation select {
     display: block ;
@@ -212,6 +218,7 @@ input {
 .reservation input {
     display: block ;
 }
+
 
 .aboutUsContainer {
     width:50%;
