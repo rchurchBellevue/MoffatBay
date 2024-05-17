@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h4 style="color:rgb(235, 252, 3);"><b >Map of our Marina: <br>
                     Click the map to get a larger view</b></h4>
                 <a href="../images/MarinaCrop.png">
-                <img style="width: 95%; height: 550px;" src="../images/MarinaCrop.png" alt="Marina map">
+                <img style="width: 95%; height: 375px;" src="../images/MarinaCrop.png" alt="Marina map">
                 </a>
             </div>
             <div class="col-lg-5 reservation ">
