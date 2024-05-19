@@ -241,51 +241,55 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="col-md register col-right">
                 <form action="" method="post">
-                    <b>First Name:</b>
+                    <table>
+                    <tr><td><b>First Name:</b></td>
+                    <td>
                     <input type="text" id="first_name" name="first_name" 
                     value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>">
                     <span class="error">* <?php echo $firstName_err;?>
                     </span>
-                    <br>
-                    <b>Last Name:</b>
-                    <input type="text" id="last_name" name="last_name" 
+                    </td>
+                    </tr>
+                    <tr>
+                    <td><b>Last Name:</b></td>
+                    <td><input type="text" id="last_name" name="last_name" 
                     value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>">
                                     <span class="error">* <?php echo $lastName_err;?></span>
-                    <br>
-                    <b>Email:</b>
-                    <input type="email" id="email_address" name="email_address" 
+                    </td></tr>
+                    <tr><td><b>Email:</b></td>
+                    <td><input type="email" id="email_address" name="email_address" 
                     value="<?php if (isset($_POST['email_address'])) echo $_POST['email_address']; ?>">
                     <span class="error">* <?php echo $emailAddress_err;?></span>
-                    <br>
-                    <b>Phone:</b>
-                    <input type="tel" id="phone" name="phone" 
+                    </td></tr>
+                    <tr><td><b>Phone:</b></td>
+                    <td><input type="tel" id="phone" name="phone" 
                     value="<?php if (isset($_POST['phone'])) echo $_POST['phone']; ?>">
                     <span class="error">* <?php echo $phoneNbr_err;?></span>
-                    <br>
-                    <b>Boat Name:</b>
-                    <input type="text" id="boatname" name="boatname" 
+</td></tr>  
+                    <tr><td><b>Boat Name:</b></td>
+                    <td><input type="text" id="boatname" name="boatname" 
                     value="<?php if (isset($_POST['boatname'])) echo $_POST['boatname']; ?>">
                     <span class="error">* <?php echo $boatname_err;?></span>
-                    <br>
-                    <b>Boat Length:</b>
-                    <input type="text" id="boatlength" name="boatlength" 
+                    </td></tr>
+                    <tr><td><b>Boat Length:</b></td>
+                    <td><input type="text" id="boatlength" name="boatlength" 
                     value="<?php if (isset($_POST['boatlength'])) echo $_POST['boatlength']; ?>">
                     <span class="error">* <?php echo $boatlength_err;?></span>
-                    <br>
-                    <b>Password:</b>
-                    <input type="password" id="password" name="password" 
+                    </td></tr>
+                    <tr><td><b>Password:</b></td>
+                    <td><input type="password" id="password" name="password" 
                     value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>">
                     <input type="checkbox" id="show_password" name="show_password" id="show_password" onclick="showPass()">
                     Show Password
                     <span class="error">* <?php echo $password_err;?></span>
-                    <br>
-                    <b>Confirm Password:</b>
-                    <input type="password" id="confirm_password" name="confirm_password" 
+                    </td></tr>
+                    <tr><td><b>Confirm Password:</b></td>
+                    <td><input type="password" id="confirm_password" name="confirm_password" 
                     value="<?php if (isset($_POST['confirm_password'])) echo $_POST['confirm_password']; ?>">
                     <input type="checkbox" id="show_password" name="show_password" id="show_password" onclick="showConfirmPass()">                
                     Show Password
                     <span class="error">* <?php echo $confirmpassword_err;?></span>
-                    <br>
+                    </table>
                     <input class="btn-primary" type="submit" value="Register">
                 </form>
             </div>
