@@ -38,12 +38,11 @@ if (isset($_SESSION['reservationDetails'])) {
             <i class="fa fa-bars"></i>
         </a>
     </div>
-
-    <!-- MAIN CONTENT -->
     <div class="container login">
         <h1>Reservation Details</h1>
         <?php if (!empty($reservationDetails)) : ?>
             <div class="reservation-details">
+                <br>
                 <p>
                     <strong>Boat Name:</strong> <?php echo $reservationDetails['boat_Name']; ?><br>
                     <strong>Boat Size:</strong> <?php echo $reservationDetails['boat_Length']; ?><br>
@@ -56,7 +55,6 @@ if (isset($_SESSION['reservationDetails'])) {
             <p>No reservation found with the provided details.</p>
         <?php endif; ?>
     </div>
-    <!-- FOOTER -->
     <div class="container-fluid">
         <footer class="py-3 my-4">
             <p>Copyright (c) Moffat Bay Marina</p>
